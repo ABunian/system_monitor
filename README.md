@@ -5,10 +5,11 @@ Used to record CPU/RAM/DISK usage and generate daily reports and Telegram push n
 ## Project structure
 ```text
 system_monitor/ 
-├── src/ # reporter, collector, service 
-├── config/ # configuration files
-├── data/ # runtime data (csv, plots)
-├── logs/ # event logs
+├── src/      # reporter, collector, service
+├── scripts   # shell script for cron
+├── config/   # configuration files
+├── data/     # runtime data (csv, plots)
+├── logs/     # event logs
 ├── Makefile
 ├── README.md
 └── .gitignore
