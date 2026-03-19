@@ -1,0 +1,23 @@
+[Unit]
+Description=System Monitor Collector
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=root
+Group=root
+
+WorkingDirectory=/home/abu/system_monitor
+ExecStart=/home/abu/system_monitor/collector
+
+Restart=always
+RestartSec=5
+
+StandardOutput=journal
+StandardError=journal
+
+TimeoutStopSec=15
+
+[Install]
+WantedBy=multi-user.target

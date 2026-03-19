@@ -1,0 +1,20 @@
+# build output
+*.o
+*.out
+*.exe
+*.a
+*.so
+bin/*
+reporter
+collector
+
+# logs
+*.log
+
+# temp files
+*.tmp
+*.swp
+
+# vscode
+.vscode/
+
