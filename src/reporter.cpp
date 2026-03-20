@@ -356,8 +356,8 @@ int main(int argc, char* argv[]) {
     if (argc < 2) {
         appendLog(LOG_PATH, "missing mode argument. usage: ./reporter <0|1>");
         std::cerr << "Usage: " << argv[0] << " <0|1>\n";
-        std::cerr << "  1 = trigger mode (no backup, no clear current.csv)\n";
-        std::cerr << "  0 = daily report mode (backup and clear current.csv)\n";
+        std::cerr << "  1 = trigger mode (no backup, no clear collector.csv)\n";
+        std::cerr << "  0 = daily report mode (backup and clear collector.csv)\n";
         return 1;
     }
     std::string modeArg = argv[1];
@@ -403,7 +403,7 @@ int main(int argc, char* argv[]) {
         backupPath = makeBackupPath();
 
         if (!backupCurrentCsv(backupPath)) {
-            appendLog(LOG_PATH, "failed to backup current.csv");
+            appendLog(LOG_PATH, "failed to backup collector.csv");
             return 1;
         }
 
@@ -465,9 +465,9 @@ int main(int argc, char* argv[]) {
 
     if (isDailyMode) {
         clearCurrentCsv();
-        appendLog(LOG_PATH, "current.csv cleared for daily mode");
+        appendLog(LOG_PATH, "collector.csv cleared for daily mode");
     } else {
-        appendLog(LOG_PATH, "trigger mode finished, current.csv preserved");
+        appendLog(LOG_PATH, "trigger mode finished, collector.csv preserved");
     }
 
     std::ostringstream done;

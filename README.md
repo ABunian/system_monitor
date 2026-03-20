@@ -39,9 +39,13 @@ sudo systemctl start system-monitor
 sudo systemctl status system-monitor
 ```
 
-## Step 4 -> Set reporter schelue in corntab 
-
+## Step 4 -> Set reporter schedule in root corntab 
+Change home_dir in shell script
+```test
+set ${HOME} in run_daily_report.sh
+```
+Add reporter to crontab
 ```bash
-crontab -e
->> 0 23 * * * /home/${username}/system_monitor/reporter 0
+sudo crontab -e
+>> 55 23 * * * /home/${username}/system_monitor/run_daily_report.sh
 ```
